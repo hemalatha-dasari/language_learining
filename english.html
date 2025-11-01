@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn English - LinguaLand</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0fdf4;
+      padding: 40px;
+      color: #333;
+    }
+    h1 { color: #58cc02; }
+    .lesson, .quiz {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #58cc02;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+    button:hover { background-color: #46a302; }
+    .question { margin-bottom: 10px; }
+    .result { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>📘 Learn English</h1>
+
+  <div class="lesson">
+    <h2>Lesson 1: Greetings</h2>
+    <p>Hello!</p>
+    <p>Good Morning!</p>
+    <p>Good Night!</p>
+  </div>
+
+  <div class="quiz">
+    <h2>🎯 Quick Quiz</h2>
+    <div class="question">
+      <p>1️⃣ How do you greet someone in the morning?</p>
+      <input type="radio" name="q1" value="Good Morning"> Good Morning<br>
+      <input type="radio" name="q1" value="Good Night"> Good Night<br>
+      <input type="radio" name="q1" value="Goodbye"> Goodbye
+    </div>
+
+    <div class="question">
+      <p>2️⃣ What do you say before sleeping?</p>
+      <input type="radio" name="q2" value="Good Night"> Good Night<br>
+      <input type="radio" name="q2" value="Good Morning"> Good Morning<br>
+      <input type="radio" name="q2" value="Hello"> Hello
+    </div>
+
+    <div class="question">
+      <p>3️⃣ What does “Hello” mean?</p>
+      <input type="radio" name="q3" value="Greeting"> Greeting<br>
+      <input type="radio" name="q3" value="Goodbye"> Goodbye<br>
+      <input type="radio" name="q3" value="Thank you"> Thank you
+    </div>
+
+    <button onclick="checkQuiz()">Check Answers</button>
+    <p class="result" id="result"></p>
+  </div>
+
+  <button onclick="window.location.href='user.html'">⬅ Back</button>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "Good Morning") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "Good Night") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "Greeting") score++;
+
+      document.getElementById("result").textContent = `You scored ${score}/3 🎉`;
+      document.getElementById("result").style.color = score === 3 ? "green" : "orange";
+    }
+  </script>
+</body>
+</html>
