@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses | LinguaLand</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0fdf4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #58cc02;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      padding: 50px;
+      text-align: center;
+    }
+    .course-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      display: inline-block;
+      margin: 20px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .course-card h2 { color: #58cc02; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LinguaLand</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button onclick="window.location.href='login.html'">Login</button></li>
+    </ul>
+  </header>
+
+  <div class="container">
+    <h1>📚 Our Courses</h1>
+    <div class="course-card">
+      <h2>Telugu</h2>
+      <p>Learn basic words, pronunciation, and conversation.</p>
+      <button onclick="window.location.href='telugu.html'">Start</button>
+    </div>
+    <div class="course-card">
+      <h2>Hindi</h2>
+      <p>Build vocabulary and practice daily conversations.</p>
+      <button onclick="window.location.href='hindi.html'">Start</button>
+    </div>
+    <div class="course-card">
+      <h2>English</h2>
+      <p>Improve grammar and fluency for everyday speaking.</p>
+      <button onclick="window.location.href='english.html'">Start</button>
+    </div>
+  </div>
+</body>
+</html>
+ 
