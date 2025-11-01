@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Hindi - LinguaLand</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0fdf4;
+      padding: 40px;
+      color: #333;
+    }
+    h1 { color: #58cc02; }
+    .lesson, .quiz {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #58cc02;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+    button:hover { background-color: #46a302; }
+    .question { margin-bottom: 10px; }
+    .result { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>🌸 Learn Hindi</h1>
+
+  <div class="lesson">
+    <h2>Lesson 1: Basic Greetings</h2>
+    <p>Hello → नमस्ते (Namaste)</p>
+    <p>Thank You → धन्यवाद (Dhanyavaad)</p>
+    <p>How are you? → आप कैसे हैं? (Aap Kaise Hain?)</p>
+  </div>
+
+  <div class="quiz">
+    <h2>🎯 Quick Quiz</h2>
+
+    <div class="question">
+      <p>1️⃣ What is “Thank you” in Hindi?</p>
+      <input type="radio" name="q1" value="Dhanyavaad"> Dhanyavaad<br>
+      <input type="radio" name="q1" value="Namaste"> Namaste<br>
+      <input type="radio" name="q1" value="Shubh"> Shubh
+    </div>
+
+    <div class="question">
+      <p>2️⃣ “How are you?” in Hindi is:</p>
+      <input type="radio" name="q2" value="Kaise Hain"> Kaise Hain<br>
+      <input type="radio" name="q2" value="Namaste"> Namaste<br>
+      <input type="radio" name="q2" value="Dhanyavaad"> Dhanyavaad
+    </div>
+
+    <div class="question">
+      <p>3️⃣ “Hello” in Hindi is:</p>
+      <input type="radio" name="q3" value="Namaste"> Namaste<br>
+      <input type="radio" name="q3" value="Aapka Naam"> Aapka Naam<br>
+      <input type="radio" name="q3" value="Shukriya"> Shukriya
+    </div>
+
+    <button onclick="checkQuiz()">Check Answers</button>
+    <p class="result" id="result"></p>
+  </div>
+
+  <button onclick="window.location.href='user.html'">⬅ Back</button>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "Dhanyavaad") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "Kaise Hain") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "Namaste") score++;
+
+      document.getElementById("result").textContent = `You scored ${score}/3 🎉`;
+      document.getElementById("result").style.color = score === 3 ? "green" : "orange";
+    }
+  </script>
+</body>
+</html>
