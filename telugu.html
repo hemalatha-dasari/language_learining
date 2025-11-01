@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Telugu - LinguaLand</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0fdf4;
+      padding: 40px;
+      color: #333;
+    }
+    h1 { color: #58cc02; }
+    .lesson, .quiz {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #58cc02;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+    button:hover { background-color: #46a302; }
+    .question { margin-bottom: 10px; }
+    .result { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>🌿 Learn Telugu</h1>
+
+  <div class="lesson">
+    <h2>Lesson 1: Basic Words</h2>
+    <p>Hello → నమస్కారం (Namaskaaram)</p>
+    <p>Thank you → ధన్యవాదాలు (Dhanyavaadaalu)</p>
+    <p>How are you? → మీరు ఎలా ఉన్నారు? (Meeru Ela Unnaaru?)</p>
+  </div>
+
+  <div class="quiz">
+    <h2>🎯 Quick Quiz</h2>
+    <div class="question">
+      <p>1️⃣ What is “Hello” in Telugu?</p>
+      <input type="radio" name="q1" value="Namaskaaram"> Namaskaaram<br>
+      <input type="radio" name="q1" value="Dhanyavaadaalu"> Dhanyavaadaalu<br>
+      <input type="radio" name="q1" value="Unnaaru"> Unnaaru
+    </div>
+
+    <div class="question">
+      <p>2️⃣ “Thank you” in Telugu is:</p>
+      <input type="radio" name="q2" value="Dhanyavaadaalu"> Dhanyavaadaalu<br>
+      <input type="radio" name="q2" value="Namaskaaram"> Namaskaaram<br>
+      <input type="radio" name="q2" value="Meeru"> Meeru
+    </div>
+
+    <div class="question">
+      <p>3️⃣ “How are you?” in Telugu is:</p>
+      <input type="radio" name="q3" value="Meeru Ela Unnaaru?"> Meeru Ela Unnaaru?<br>
+      <input type="radio" name="q3" value="Namaskaaram"> Namaskaaram<br>
+      <input type="radio" name="q3" value="Dhanyavaadaalu"> Dhanyavaadaalu
+    </div>
+
+    <button onclick="checkQuiz()">Check Answers</button>
+    <p class="result" id="result"></p>
+  </div>
+
+  <button onclick="window.location.href='user.html'">⬅ Back</button>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "Namaskaaram") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "Dhanyavaadaalu") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "Meeru Ela Unnaaru?") score++;
+
+      document.getElementById("result").textContent = `You scored ${score}/3 🎉`;
+      document.getElementById("result").style.color = score === 3 ? "green" : "orange";
+    }
+  </script>
+</body>
+</html>
