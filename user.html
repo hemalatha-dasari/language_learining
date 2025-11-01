@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard - LinguaLand</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0fdf4;
+    }
+    header {
+      background-color: #58cc02;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h2 { margin: 0; }
+    header button {
+      background-color: white;
+      color: #58cc02;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    main {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .language-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .card {
+      background-color: white;
+      width: 220px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 25px;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card img {
+      width: 70px;
+      margin-bottom: 15px;
+    }
+    .card h3 { color: #58cc02; margin-bottom: 10px; }
+    .card button {
+      background-color: #58cc02;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .card button:hover { background-color: #46a302; }
+
+    footer {
+      background-color: #58cc02;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Welcome to LinguaLand, <span id="userName"></span>!</h2>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <main>
+    <h1>Start Your Learning Journey 🚀</h1>
+    <p>Select a language below to begin your lessons:</p>
+
+    <div class="language-section">
+      <div class="card">
+        <img src="data:image/png;base64,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" alt="Telugu">
+        <h3>Telugu</h3>
+        <p>Basic words, alphabets & conversations.</p>
+    <button onclick="window.location.href='telugu.html'">Start</button>
+      </div>
+
+      <div class="card">
+        <img src="data:image/png;base64,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" alt="Hindi">
+        <h3>Hindi</h3>
+        <p>Learn phrases, numbers, and sentences.</p>
+            <button onclick="window.location.href='hindi.html'">Start</button>
+
+      </div>
+
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF1TOborgEWS5cmbFUBxEdv7CXTUtuEjtRNQ&s" alt="English">
+        <h3>English</h3>
+        <p>Practice grammar, listening, and speaking.</p>
+    <button onclick="window.location.href='english.html'">Start</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2025 LinguaLand | Learn, Play & Grow 🌿
+  </footer>
+
+  <script>
+    // Get username from URL
+    const params = new URLSearchParams(window.location.search);
+    const user = params.get("user");
+    document.getElementById("userName").textContent = user || "Learner";
+
+    // Logout button
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    });
+  </script>
+
+</body>
+</html>
